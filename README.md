@@ -18,8 +18,10 @@ A worldtube construction is employed: outside the worldtube the standard Poisson
 
 ```
 .
-├── Andrew_s_idea.pdf                    # Technical write-up of the approach
-├── Tommy email.rtf                      # Correspondence describing the method
+├── Andrew_s_idea.pdf                                        # Technical write-up of the approach
+├── Tommy email.rtf                                          # Correspondence describing the method
+├── Greens-function-Poisson-equation-3.nb                   # ℓ-mode Poisson Green's function
+├── Singular-and-regular-split-works-real-outside-worldtube.nb  # Key result: singular-regular split
 ├── Heaviside-works/
 │   ├── Does-Heaviside-delta-product-appear.nb
 │   ├── Integrate-Dirac-Delta-to-Heaviside.nb
@@ -31,6 +33,10 @@ A worldtube construction is employed: outside the worldtube the standard Poisson
 ```
 
 ### Notebook Descriptions
+
+**Top-level**
+- `Greens-function-Poisson-equation-3.nb` — Constructs the ℓ-mode Green's function for the Poisson equation with boundary conditions at infinity; integrates against a source `S_ℓ` to give the mode solution.
+- `Singular-and-regular-split-works-real-outside-worldtube.nb` — **Key result notebook.** Demonstrates the full singular–regular split with the worldtube construction: solves the Poisson equation on the real line outside the worldtube, injects a homogeneous solution on the left as the regular field, and solves along a complex contour inside the worldtube with an effective source (extended Dirac delta minus singular-field contribution). Confirms the regular field is recovered to good accuracy. Parameters: `lMode`, `r0`, worldtube size/amplitude, expansion `order`.
 
 **Heaviside-works/**
 - `Does-Heaviside-delta-product-appear.nb` — Investigates whether a Heaviside–delta product appears in the regularisation procedure.
