@@ -1,0 +1,377 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     11476,        369]
+NotebookOptionsPosition[      9580,        327]
+NotebookOutlinePosition[      9977,        343]
+CellTagsIndexPosition[      9934,        340]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"solAnalytic", "[", "r", "]"}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.988430886426386*^9, 3.988430891686664*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"a40cad34-13f0-49be-bd63-7ef08ca39cb1"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{"2", " ", 
+    SqrtBox["\[Pi]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "r"}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "5"}], "+", "r"}], ")"}], " ", 
+       RowBox[{"HeavisideTheta", "[", 
+        RowBox[{
+         RowBox[{"-", "5"}], "+", "r"}], "]"}]}]}], ")"}]}], 
+   RowBox[{"5", " ", "r"}]]}]], "Output",
+ CellChangeTimes->{{3.988430886839937*^9, 3.988430892228256*^9}, 
+   3.988430935232421*^9},
+ CellLabel->
+  "Out[138]=",ExpressionUUID->"50b63a63-87fa-453e-988e-4df096602ccc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"solAnalytic1", "[", "r", "]"}]], "Input",
+ CellChangeTimes->{{3.988430874924691*^9, 3.988430879614738*^9}},
+ CellLabel->
+  "In[139]:=",ExpressionUUID->"97812292-7d89-47c1-8ef2-25cec5e03e1f"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SqrtBox[
+         RowBox[{"3", " ", "\[Pi]"}]]}], " ", 
+       SuperscriptBox["r", "3"]}], "-", 
+      RowBox[{"125", " ", 
+       SqrtBox[
+        RowBox[{"3", " ", "\[Pi]"}]], " ", 
+       RowBox[{"HeavisideTheta", "[", 
+        RowBox[{
+         RowBox[{"-", "5"}], "+", "r"}], "]"}]}], "+", 
+      RowBox[{
+       SqrtBox[
+        RowBox[{"3", " ", "\[Pi]"}]], " ", 
+       SuperscriptBox["r", "3"], " ", 
+       RowBox[{"HeavisideTheta", "[", 
+        RowBox[{
+         RowBox[{"-", "5"}], "+", "r"}], "]"}]}]}], ")"}]}], 
+   RowBox[{"75", " ", 
+    SuperscriptBox["r", "2"]}]]}]], "Output",
+ CellChangeTimes->{3.988430879968445*^9, 3.9884309371666307`*^9},
+ CellLabel->
+  "Out[139]=",ExpressionUUID->"ad1a765c-4a24-40aa-b5a4-72ee0ce7a86f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D", "[", 
+   RowBox[{
+    RowBox[{"solAnalytic", "[", "r", "]"}], ",", "r"}], "]"}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.988431588905733*^9, 3.9884315921929293`*^9}},
+ CellLabel->
+  "In[142]:=",ExpressionUUID->"d815a0d5-5129-4316-a685-8334d91d2b91"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{"2", " ", 
+    SqrtBox["\[Pi]"], " ", 
+    RowBox[{"HeavisideTheta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}]}], 
+   SuperscriptBox["r", "2"]]}]], "Output",
+ CellChangeTimes->{3.988430964795106*^9, 3.988431592766411*^9},
+ CellLabel->
+  "Out[142]=",ExpressionUUID->"3c83f2dc-7376-471a-b3b5-a261d72c0c08"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D", "[", 
+   RowBox[{
+    RowBox[{"solAnalytic", "[", "r", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "2"}], "}"}]}], "]"}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.988430970263756*^9, 3.9884309734755297`*^9}, {
+  3.988431602406475*^9, 3.988431602990357*^9}},
+ CellLabel->
+  "In[143]:=",ExpressionUUID->"cc1f8cb1-8b45-4955-be67-955dd4f84606"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["2", "5"]}], " ", 
+  SqrtBox["\[Pi]"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "5"], " ", 
+     RowBox[{"DiracDelta", "[", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "r"}], "]"}]}], "-", 
+    FractionBox[
+     RowBox[{"10", " ", 
+      RowBox[{"HeavisideTheta", "[", 
+       RowBox[{
+        RowBox[{"-", "5"}], "+", "r"}], "]"}]}], 
+     SuperscriptBox["r", "3"]]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.988430973946794*^9, 3.9884316034816628`*^9},
+ CellLabel->
+  "Out[143]=",ExpressionUUID->"e3248108-cecf-4da4-b2ec-9cc9212ab4dc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"solAnalytic1", "[", "r", "]"}], 
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"solAnalytic", "[", "r", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "2"}], "}"}]}], "]"}]}], "//", "Simplify"}], ")"}], 
+  "//", "Expand"}]], "Input",
+ CellChangeTimes->{{3.9884353993991756`*^9, 3.988435412231985*^9}, {
+  3.988435473690055*^9, 3.988435482020282*^9}},
+ CellLabel->
+  "In[203]:=",ExpressionUUID->"cc67b597-37c3-409b-8704-33d63e2344dc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"4", " ", "\[Pi]", " ", "r", " ", 
+     RowBox[{"DiracDelta", "[", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "r"}], "]"}]}], 
+    RowBox[{"625", " ", 
+     SqrtBox["3"]}]]}], "+", 
+  FractionBox[
+   RowBox[{"8", " ", "\[Pi]", " ", 
+    RowBox[{"HeavisideTheta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}]}], 
+   RowBox[{"25", " ", 
+    SqrtBox["3"], " ", 
+    SuperscriptBox["r", "2"]}]], "-", 
+  FractionBox[
+   RowBox[{"4", " ", "\[Pi]", " ", 
+    RowBox[{"DiracDelta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}], " ", 
+    RowBox[{"HeavisideTheta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}]}], 
+   RowBox[{"5", " ", 
+    SqrtBox["3"], " ", 
+    SuperscriptBox["r", "2"]}]], "+", 
+  FractionBox[
+   RowBox[{"4", " ", "\[Pi]", " ", "r", " ", 
+    RowBox[{"DiracDelta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}], " ", 
+    RowBox[{"HeavisideTheta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}]}], 
+   RowBox[{"625", " ", 
+    SqrtBox["3"]}]], "+", 
+  FractionBox[
+   RowBox[{"40", " ", "\[Pi]", " ", 
+    SuperscriptBox[
+     RowBox[{"HeavisideTheta", "[", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "r"}], "]"}], "2"]}], 
+   RowBox[{
+    SqrtBox["3"], " ", 
+    SuperscriptBox["r", "5"]}]], "-", 
+  FractionBox[
+   RowBox[{"8", " ", "\[Pi]", " ", 
+    SuperscriptBox[
+     RowBox[{"HeavisideTheta", "[", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "r"}], "]"}], "2"]}], 
+   RowBox[{"25", " ", 
+    SqrtBox["3"], " ", 
+    SuperscriptBox["r", "2"]}]]}]], "Output",
+ CellChangeTimes->{{3.9884354034504013`*^9, 3.988435412576124*^9}, {
+  3.9884354748717117`*^9, 3.988435482354288*^9}},
+ CellLabel->
+  "Out[203]=",ExpressionUUID->"1d2490a8-02ce-4a84-ad7d-d7e256f81aa6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Coefficient", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"solAnalytic1", "[", "r", "]"}], 
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"solAnalytic", "[", "r", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"r", ",", "2"}], "}"}]}], "]"}]}], "//", "Simplify"}], 
+     ")"}], "//", "Expand"}], ",", " ", 
+   RowBox[{
+    RowBox[{"DiracDelta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}], " ", 
+    RowBox[{"HeavisideTheta", "[", 
+     RowBox[{
+      RowBox[{"-", "5"}], "+", "r"}], "]"}]}]}], "]"}]], "Input",
+ CellLabel->
+  "In[207]:=",ExpressionUUID->"ffb070ac-2572-47f4-8ae0-0b053f9da3e9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"4", " ", "\[Pi]"}], 
+    RowBox[{"5", " ", 
+     SqrtBox["3"], " ", 
+     SuperscriptBox["r", "2"]}]]}], "+", 
+  FractionBox[
+   RowBox[{"4", " ", "\[Pi]", " ", "r"}], 
+   RowBox[{"625", " ", 
+    SqrtBox["3"]}]]}]], "Output",
+ CellChangeTimes->{3.988435589744808*^9},
+ CellLabel->
+  "Out[207]=",ExpressionUUID->"308b7c52-b9a6-43fa-8f34-37a2b43c0d4a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Coefficient", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"solAnalytic1", "[", "r", "]"}], 
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"solAnalytic", "[", "r", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"r", ",", "2"}], "}"}]}], "]"}]}], "//", "Simplify"}], 
+      ")"}], "//", "Expand"}], ",", " ", 
+    RowBox[{
+     RowBox[{"DiracDelta", "[", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "r"}], "]"}], " ", 
+     RowBox[{"HeavisideTheta", "[", 
+      RowBox[{
+       RowBox[{"-", "5"}], "+", "r"}], "]"}]}]}], "]"}], "/.", 
+  RowBox[{"r", "->", "5"}]}]], "Input",
+ CellChangeTimes->{{3.988435428419652*^9, 3.988435447072901*^9}, 
+   3.988435493252014*^9, {3.988435571324279*^9, 3.988435577394334*^9}},
+ CellLabel->
+  "In[208]:=",ExpressionUUID->"9313abaa-46be-424d-9774-5fa1b4c83ce4"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.988435447426318*^9, 3.98843549405479*^9, {3.9884355787965307`*^9, 
+   3.9884355912651663`*^9}},
+ CellLabel->
+  "Out[208]=",ExpressionUUID->"959a181f-b966-470d-8299-4b1d8f31cee0"]
+}, Open  ]],
+
+Cell["\<\
+The first order function is smooth at r=r_0, so first-order field times by \
+two radial derivatives of a first-order field might appear to have a \
+Heaviside times by a delta, 
+but this is just because we used Heavisides rather than absolute values to \
+express the first-order fields.\
+\>", "Text",
+ CellChangeTimes->{{3.988435600578271*^9, 
+  3.98843570588197*^9}},ExpressionUUID->"cafd730c-7f37-48bf-a21c-\
+935edcd7fb25"]
+},
+WindowSize->{1237, 1382},
+WindowMargins->{{Automatic, -2560}, {Automatic, -3}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"68d798e3-4901-4396-b091-982f7fc34e31"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 244, 5, 29, "Input",ExpressionUUID->"a40cad34-13f0-49be-bd63-7ef08ca39cb1"],
+Cell[823, 29, 599, 19, 50, "Output",ExpressionUUID->"50b63a63-87fa-453e-988e-4df096602ccc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1459, 53, 214, 4, 29, "Input",ExpressionUUID->"97812292-7d89-47c1-8ef2-25cec5e03e1f"],
+Cell[1676, 59, 887, 28, 46, "Output",ExpressionUUID->"ad1a765c-4a24-40aa-b5a4-72ee0ce7a86f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2600, 92, 303, 8, 29, "Input",ExpressionUUID->"d815a0d5-5129-4316-a685-8334d91d2b91"],
+Cell[2906, 102, 381, 11, 51, "Output",ExpressionUUID->"3c83f2dc-7376-471a-b3b5-a261d72c0c08"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3324, 118, 400, 10, 29, "Input",ExpressionUUID->"cc1f8cb1-8b45-4955-be67-955dd4f84606"],
+Cell[3727, 130, 625, 20, 47, "Output",ExpressionUUID->"e3248108-cecf-4da4-b2ec-9cc9212ab4dc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4389, 155, 533, 15, 29, "Input",ExpressionUUID->"cc67b597-37c3-409b-8704-33d63e2344dc"],
+Cell[4925, 172, 1854, 60, 96, "Output",ExpressionUUID->"1d2490a8-02ce-4a84-ad7d-d7e256f81aa6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6816, 237, 706, 22, 29, "Input",ExpressionUUID->"ffb070ac-2572-47f4-8ae0-0b053f9da3e9"],
+Cell[7525, 261, 420, 14, 50, "Output",ExpressionUUID->"308b7c52-b9a6-43fa-8f34-37a2b43c0d4a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7982, 280, 911, 26, 29, "Input",ExpressionUUID->"9313abaa-46be-424d-9774-5fa1b4c83ce4"],
+Cell[8896, 308, 231, 5, 33, "Output",ExpressionUUID->"959a181f-b966-470d-8299-4b1d8f31cee0"]
+}, Open  ]],
+Cell[9142, 316, 434, 9, 55, "Text",ExpressionUUID->"cafd730c-7f37-48bf-a21c-935edcd7fb25"]
+}
+]
+*)
+

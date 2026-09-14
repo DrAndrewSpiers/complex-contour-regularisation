@@ -1,0 +1,12 @@
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Mathematica temp files
+*.mb
+*.mx
+.Mathematica/
+
+# Thumbnails
+._*
