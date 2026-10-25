@@ -25,7 +25,7 @@
 
 \title{Complex-contour regularization of second-order point-particle sources}
 
-\author{Andrew Spiers}
+\author{Andrew Spiers, Thomas Osburn}
 \email{andrew.spiers@ucd.ie}
 \affiliation{School of Mathematics and Statistics, University College Dublin, Belfield, Dublin 4, Ireland}
 
@@ -38,7 +38,7 @@ We show that deforming the radial coordinate of each mode equation onto a contou
 The real part of the solution on the real axis reproduces the Hadamard \emph{partie finie} at mode level, including the $\delta$-function content of the source, with no puncture subtraction.
 Nonlinear sources need care, because multiplying two continued fields would mix a spurious imaginary ``shadow'' into the physical solution.
 We avoid this with a hybrid treatment in which every source on the contour is linear in a single continued quantity.
-Closed-form singular pieces are evaluated at complex radius by angular quadrature, while the integrable remainder built from the regular field is formed on the real axis and continued with a Cauchy (extended-$\delta$) integral.
+Closed-form singular pieces are evaluated at complex radius by angular quadrature, while the integrable remainder built from the regular field is formed on the real axis, where it can be solved directly or continued onto the contour with a Cauchy (extended-$\delta$) integral.
 We test the method on a scalar model with source $\tfrac12\partial_z^2(\Phi^2)$, which reproduces the $1/\rho^4$ and $\delta$-function structure of the gravitational case.
 With an exact puncture it recovers the second-order field to $10^{-17}$.
 With truncated punctures it converges as a power of the number of coupled modes, at the rate set by the smoothness of the residual field.
@@ -127,7 +127,7 @@ Both are discussed in Appendix~\ref{app:consistency}.
 \emph{Top:} the complex $r$ plane. SS and SR are solved on the contour inside the worldtube and on the real axis, with the physical source, outside it.
 \emph{Bottom:} the treatment of each piece.
 SS is evaluated directly on the contour by angular quadrature at complex $r$ (Appendix~\ref{app:quadrature}).
-SR is split into a closed-form Part 1, which carries all non-integrable and $\delta$ terms, and an integrable Part 2, which is formed on the real axis from real fields and Cauchy-continued onto the contour; both parts are then solved on the contour.
+SR is split into a closed-form Part 1, which carries all non-integrable and $\delta$ terms, and an integrable Part 2, which is formed on the real axis from real fields and solved there, or Cauchy-continued onto the contour and solved with Part 1 (dashed arrow).
 RR is smooth and solved on the real axis.}
 \label{fig:flow}
 \end{figure*}
@@ -162,7 +162,9 @@ Part 2 is therefore formed on the real axis, where both factors are real, and co
 \label{eq:cauchy}
 \end{equation}
 over an interval $I$ slightly larger than the worldtube. This is analytic above the axis and has $\Re\tilde s(r+i0)=s$.
-Part 2 is then solved on the contour together with Part 1, so SR needs one contour solve with a smooth source; being integrable, Part 2 could in principle be solved on the real axis instead.
+Being integrable and free of $\delta$ terms, Part 2 can be solved on the real axis like RR, with the solve split at $r_0$; nothing is subtracted, so nothing is amplified.
+Alternatively, it can be continued onto the contour with Eq.~\eqref{eq:cauchy} and solved together with Part 1, which is what our tests did; the two routes agree to $2\times10^{-16}$ (Appendix~\ref{app:convergence}).
+The continuation is a fixed linear map from real-axis samples to contour nodes, independent of $\ell$, so it is cheap, but it is not necessary: only Part 1 needs the contour.
 $T_k$ is computed from the same truncated mode sums of $\Pres$ at $r_0$ as enter Part 2.
 The two parts then add up exactly to the truncated SR, so errors in the local data are absorbed into the ordinary mode truncation.
 
@@ -243,7 +245,7 @@ In the toy, the largest saving in SS quadrature comes from evaluating the source
 \emph{Conclusion.}---%
 Continuing each mode equation onto a contour around the particle gives automatic, puncture-free regularization of second-order point-particle sources.
 It reproduces the Hadamard finite part and the $\delta$ content of the canonical distributional source.
-The nonlinear difficulty, contamination by the shadow, is removed by keeping every contour source linear in a single continued quantity: closed-form singular pieces are evaluated at complex radius, regular-field remainders are formed on the real axis and continued by a Cauchy integral, and the smooth RR piece stays on the real axis.
+The nonlinear difficulty, contamination by the shadow, is removed by keeping every contour source linear in a single continued quantity: closed-form singular pieces are evaluated at complex radius, regular-field remainders are formed on the real axis, where they can be solved directly or continued by a Cauchy integral, and the smooth RR piece stays on the real axis.
 In a scalar model with the $1/\rho^4$ distributional structure of gravity, the method is accurate to $10^{-17}$ with exact punctures.
 With truncated punctures it converges at the rate set by the residual's smoothness, adding no error beyond the usual mode truncation.
 Next steps are the Lorenz-gauge and Teukolsky sources in Schwarzschild.

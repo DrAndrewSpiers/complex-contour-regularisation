@@ -3,7 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,calc}
 \newcommand{\PP}{\Phi^{\rm P}}
 \newcommand{\Pres}{\Phi^{\rm res}}
 \begin{document}
@@ -28,6 +28,7 @@
 \draw[->] (top.south -| rr) -- (rr.north);
 \draw[->] (ss.south) -- (ss.south |- con.north);
 \draw[->] (sr.south) -- (sr.south |- con.north);
+\draw[->, dashed] ($(sr.south east)+(-0.3,0)$) -- ++(0,-0.45) -| ($(real.north)+(-0.5,0)$);
 \draw[->] (rr.south) -- (real.north);
 \draw[->] (con.south) -- (con.south |- out.north);
 \draw[->] (real.south) -- (real.south |- out.north);

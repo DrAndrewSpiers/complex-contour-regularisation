@@ -29,22 +29,31 @@
 \node[box=3.45cm, draw=red!70!black] (r2a) [below=0.40cm of r1.south west, anchor=north west]
   {\textbf{Part 1} $=2Q[\PP,T_k\Pres]$\\closed form; carries all non-integrable and $\delta$ terms; complex-radius quadrature, kinks blended with $H$ ($\delta\to\delta_{\rm ext}$)};
 \node[box=3.45cm, draw=blue!60!black] (r2b) [below=0.40cm of r1.south east, anchor=north east]
-  {\textbf{Part 2} $=2Q[\PP,\Pres-T_k\Pres]$\\formed on the real axis from real fields; vanishes on the worldline, integrable, no $\delta$ terms; solved on the real axis, or Cauchy-continued onto the contour};
-\node[box=7.2cm] (r3) [below=0.40cm of r1, yshift=-3.6cm]
-  {Contour solve of Part 1, plus the continued Part 2 if it is not solved on the real axis.\\
-   No product of two continued fields is formed, so there is no shadow cross term.\\
+  {\textbf{Part 2} $=2Q[\PP,\Pres-T_k\Pres]$\\formed on the real axis from real fields; vanishes on the worldline, integrable, no $\delta$ terms};
+\node[box=3.45cm, draw=red!70!black, fill=red!6] (r3a) [below=0.40cm of r2a]
+  {\textbf{Contour solve} of $\mathcal L_\ell\tilde\psi=\widetilde{\mathrm{SR}}^{(1)}_\ell$\\(or of Part 1 $+$ Cauchy-continued Part 2)};
+\node[box=3.45cm, draw=blue!60!black, fill=blue!6] (r3b) [below=0.40cm of r2b]
+  {\textbf{Real-axis solve} of $\mathcal L_\ell\psi=\mathrm{SR}^{(2)}_\ell$\\(or Cauchy-continue Part 2 onto the contour)};
+\node[box=7.2cm] (r4) [below=0.40cm of r3a.south west, anchor=north west]
+  {No product of two continued fields is formed, so there is no shadow cross term.\\
    \textit{\textcolor{red!70!black}{The error equals the mode-truncation error of a real-axis puncture scheme (Appendix~G).}}};
-\path let \p1=(l3.south), \p2=(r3.south) in coordinate (lowest) at (0,{min(\y1,\y2)});
+\node[box=7.2cm, draw=gray!40!black, fill=gray!8] (lbot) [below=0.40cm of l3]
+  {\textbf{Contour solve} of $\mathcal L_\ell\tilde\psi=\widetilde{\mathrm{SR}}_\ell$ with the product source};
+\path let \p1=(lbot.south), \p2=(r4.south) in coordinate (lowest) at (0,{min(\y1,\y2)});
 \node[box=15.6cm, draw=red!70!black, fill=red!6] (bot) [below=0.55cm of lowest]
-  {$\mathrm{SR}_\ell(z)$ on the contour $\;\longrightarrow\;$ contour solve of $\mathcal L_\ell\tilde\psi=\widetilde{\mathrm{SR}}_\ell$; take the real part at $a_R$};
+  {Take the real part at $a_R$: $\Re\tilde\psi_\ell(a_R)$ and $\Re\tilde\psi'_\ell(a_R)$ are the physical exterior data of the SR field};
 \draw[->] (top.south -| l1) -- (l1.north);
 \draw[->] (top.south -| r1) -- (r1.north);
 \draw[->] (l1) -- (l2); \draw[->] (l2) -- (l3);
 \draw[->] (r1.south -| r2a) -- (r2a.north);
 \draw[->] (r1.south -| r2b) -- (r2b.north);
-\draw[->] (r2a.south) -- (r2a.south |- r3.north);
-\draw[->] (r2b.south) -- (r2b.south |- r3.north);
-\draw[->] (l3.south) -- (l3.south |- bot.north);
-\draw[->] (r3.south) -- (r3.south |- bot.north);
+\draw[->] (r2a.south) -- (r3a.north);
+\draw[->] (r2b.south) -- (r3b.north);
+\draw[->, dashed] (r2b.west) -- (r2a.east);
+\draw[->] (r3a.south) -- (r3a.south |- r4.north);
+\draw[->] (r3b.south) -- (r3b.south |- r4.north);
+\draw[->] (l3.south) -- (lbot.north);
+\draw[->] (lbot.south) -- (lbot.south |- bot.north);
+\draw[->] (r4.south) -- (r4.south |- bot.north);
 \end{tikzpicture}
 \end{document}
