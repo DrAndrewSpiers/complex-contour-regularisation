@@ -10,3 +10,21 @@
 
 # Thumbnails
 ._*
+
+# LaTeX by-products
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*Notes.bib
+
+# Run logs
+**/results/logs/
+
+# Third-party papers (copyrighted PDFs)
+papers/

@@ -1,0 +1,46 @@
+"variant","h","eps","noise_model","max_l_scaled_error"
+"subtract A","1/50","0","-",1.7428591096831048
+"subtract A","1/100","0","-",0.8714435310845549
+"subtract A","1/200","0","-",0.43572554713268563
+"subtract AB","1/50","0","-",1.2423933146595922
+"subtract AB","1/100","0","-",0.6211924508299029
+"subtract AB","1/200","0","-",0.3105958673736941
+"subtract ABC","1/50","0","-",0.000019609904741462004
+"subtract ABC","1/100","0","-",0.000002451127818327324
+"subtract ABC","1/200","0","-",3.0639212751907907e-7
+"subtract ABC+","1/50","0","-",3.1770747658170296e-9
+"subtract ABC+","1/100","0","-",9.927737677457986e-11
+"subtract ABC+","1/200","0","-",3.1594190900466813e-12
+"radial factor (C)","1/50","0.","rel. full SS",7.971462107445071
+"radial factor (C)","1/50","1.e-12","rel. full SS",7.971462105924591
+"radial factor (C)","1/50","1.e-08","rel. full SS",7.971446872508768
+"radial factor (C)","1/100","0.","rel. full SS",3.9862036687643325
+"radial factor (C)","1/100","1.e-12","rel. full SS",3.9862037495181024
+"radial factor (C)","1/100","1.e-08","rel. full SS",3.987011277543039
+"radial factor (C)","1/200","0.","rel. full SS",1.9931609327416198
+"radial factor (C)","1/200","1.e-12","rel. full SS",1.993160800311683
+"radial factor (C)","1/200","1.e-08","rel. full SS",1.991836647406044
+"subtract ABC","1/50","1.e-12","rel. remainder",0.000019609892057404553
+"subtract ABC","1/50","1.e-08","rel. remainder",0.000019483331599337947
+"subtract ABC","1/50","1.e-12","rel. full SS",0.000019599071223443196
+"subtract ABC","1/50","1.e-08","rel. full SS",0.0001943295073859226
+"subtract ABC","1/100","1.e-12","rel. remainder",0.000002451122308499224
+"subtract ABC","1/100","1.e-08","rel. remainder",0.000002395457421983706
+"subtract ABC","1/100","1.e-12","rel. full SS",0.000002361424847489922
+"subtract ABC","1/100","1.e-08","rel. full SS",0.0008945777917355467
+"subtract ABC","1/200","1.e-12","rel. remainder",3.0639704250442486e-7
+"subtract ABC","1/200","1.e-08","rel. remainder",3.5513011541342484e-7
+"subtract ABC","1/200","1.e-12","rel. full SS",3.7869159680899453e-7
+"subtract ABC","1/200","1.e-08","rel. full SS",0.000723301827488368
+"subtract ABC+","1/50","1.e-12","rel. remainder",3.1660852405766934e-9
+"subtract ABC+","1/50","1.e-08","rel. remainder",1.0655237847519356e-7
+"subtract ABC+","1/50","1.e-12","rel. full SS",1.9543135145522873e-8
+"subtract ABC+","1/50","1.e-08","rel. full SS",0.00019001681153824336
+"subtract ABC+","1/100","1.e-12","rel. remainder",9.174714630758348e-11
+"subtract ABC+","1/100","1.e-08","rel. remainder",7.469655045439976e-8
+"subtract ABC+","1/100","1.e-12","rel. full SS",8.960364217110367e-8
+"subtract ABC+","1/100","1.e-08","rel. full SS",0.0008970288204124561
+"subtract ABC+","1/200","1.e-12","rel. remainder",8.647525731634192e-12
+"subtract ABC+","1/200","1.e-08","rel. remainder",5.4992848627891296e-8
+"subtract ABC+","1/200","1.e-12","rel. full SS",7.230279514911384e-8
+"subtract ABC+","1/200","1.e-08","rel. full SS",0.0007229954385832801

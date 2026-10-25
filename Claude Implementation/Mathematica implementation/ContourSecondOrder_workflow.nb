@@ -1,0 +1,815 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     31312,        806]
+NotebookOptionsPosition[     27913,        761]
+NotebookOutlinePosition[     28230,        775]
+CellTagsIndexPosition[     28187,        772]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Complex-contour S/R split: first and second order (toy model)\
+\>", "Title",ExpressionUUID->"cc87e8ae-e3b5-4ade-9fe5-a9a2958e1713"],
+
+Cell["\<\
+Flat 3D Poisson toy model of the complex-contour regularisation project (A. \
+Spiers). Specification: Claude Implementation/singular-field-consistency.tex. \
+All functions live in ContourSecondOrder.wl in this folder; the .wls scripts \
+are the pass/fail test versions of the sections below. Conventions: Y_l = \
+Y_l0 orthonormal, [f]_l = Sqrt[Pi(2l+1)] Integrate[f P_l(mu), {mu,-1,1}], L_l \
+psi = psi'' + 2 psi'/r - l(l+1) psi/r^2, unit-strength first-order mode \
+source delta(r-r0), kappa_l = -(q/r0^2) Sqrt[4 Pi (2l+1)], H(z) = 1 + (I/Pi) \
+Log[z-r0], deltaExt = I/(Pi (z-r0)); real-axis values are boundary values \
+from above. The complex radial variable is the package symbol zVar.\
+\>", "Text",ExpressionUUID->"14180578-0550-4db2-a419-c6363e5c13e3"],
+
+Cell["Setup", "Section",ExpressionUUID->"fea8de0d-f05e-4739-a40c-dcdb2f5cc242"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{"Get", "[", "\"\<ContourSecondOrder.wl\>\"", "]"}]}], "Input",Express\
+ionUUID->"4bff3a24-bb5a-47ee-ab61-e625e3f6d338"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetCSParameters", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<q\>\"", " ", "->", " ", "1"}], ",", " ", 
+     RowBox[{"\"\<r0\>\"", " ", "->", " ", "5"}], ",", " ", 
+     RowBox[{"\"\<c0\>\"", " ", "->", " ", "1"}], ",", " ", 
+     RowBox[{"\"\<c1\>\"", " ", "->", " ", 
+      RowBox[{"1", "/", "10"}]}]}], "|>"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"rMin", " ", "=", " ", "1"}], ",", " ", 
+    RowBox[{"rMax", " ", "=", " ", "10"}], ",", " ", 
+    RowBox[{"tube", " ", "[", 
+     RowBox[{
+      RowBox[{"9", "/", "2"}], ",", " ", 
+      RowBox[{"11", "/", "2"}]}], "]"}], ",", " ", 
+    RowBox[{"amp", " ", "=", " ", "1"}], ",", " ", 
+    RowBox[{"WP", " ", "30"}]}], " ", "*)"}]}]], "Input",ExpressionUUID->\
+"20947a83-67b9-4f6a-85c2-156248adcadd"],
+
+Cell[BoxData[
+ RowBox[{"ParametricPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Re", "[", 
+      RowBox[{"yC", "[", "a", "]"}], "]"}], ",", " ", 
+     RowBox[{"Im", "[", 
+      RowBox[{"yC", "[", "a", "]"}], "]"}]}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", " ", 
+     RowBox[{"tubeL", "[", "]"}], ",", " ", 
+     RowBox[{"tubeR", "[", "]"}]}], "}"}], ",", " ", 
+   RowBox[{"AxesLabel", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Re z\>\"", ",", " ", "\"\<Im z\>\""}], "}"}]}], ",", " ", 
+   RowBox[{"PlotLabel", " ", "->", " ", "\"\<contour y(a)\>\""}]}], 
+  "]"}]], "Input",ExpressionUUID->"faab317e-45fd-4ce9-99aa-a029722a2a2a"],
+
+Cell["Stage 1: the first-order singular mode", "Section",ExpressionUUID->"7600abd7-a374-4495-8afa-c30fd67c0662"],
+
+Cell["\<\
+psi_p = DSolveValue[L_l psi == deltaExt] /. C[_] -> 0, exactly as in \
+Singular-and-regular-split-works-real-outside-worldtube.nb. DSolve writes the \
+antiderivatives with Log[r0 - z] and Log[z - r0] (l = 0, 1) or Log[r0 - z] \
+and Log[z] (l >= 2). Log[r0 - z] evaluated at real z > r0 with Mathematica's \
+principal branch is the value from BELOW; canonicalizeLogs rewrites it as \
+Log[z - r0] - I Pi, the same analytic function in the upper half plane.\
+\>", "Text",ExpressionUUID->"f8b472ad-4d2e-4b60-9393-df5a1ae07b30"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"l", ",", " ", 
+      RowBox[{
+       RowBox[{"dsolveSingularMode", "[", "l", "]"}], "[", "zVar", "]"}]}], 
+     "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", " ", "0", ",", " ", "3"}], "}"}]}], "]"}], " ", "//", 
+  " ", "TableForm"}]], "Input",ExpressionUUID->"8f1e919a-a220-48b5-95cb-\
+a33f7a5e2860"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"l", ",", " ", 
+      RowBox[{
+       RowBox[{"singularModeCanonical", "[", "l", "]"}], "[", "zVar", "]"}]}],
+      "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", " ", "0", ",", " ", "2"}], "}"}]}], "]"}], " ", "//", 
+  " ", "TableForm"}]], "Input",ExpressionUUID->"9a99b8c8-a1f3-477c-84c2-\
+183eeefb58da"],
+
+Cell["\<\
+D_l(r) = Re psi_p(r+i0) - G_l(r) = alpha r^l + beta r^(-l-1).  Result: \
+alpha_0 = r0, beta_0 = r0^2; D_1 = 0; alpha_l = r0^(1-l)/(2l+1), beta_l = 0 \
+for l >= 2 (the note's 'mirror' choice), not the note's beta_l = \
+r0^(l+2)/(2l+1).\
+\>", "Text",ExpressionUUID->"ffabf39a-6b67-4ccd-ba61-3f4add9b963c"],
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{
+       RowBox[{"singularModeD", "[", "l", "]"}], ",", " ", "l"}], "]"}], ",", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"l", ",", " ", "0", ",", " ", "8"}], "}"}]}], "]"}], ",", " ", 
+   RowBox[{"TableHeadings", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"\"\<l\>\"", ",", " ", "\"\<alpha\>\"", ",", 
+        " ", "\"\<beta\>\""}], "}"}]}], "}"}]}]}], "]"}]], "Input",ExpressionU\
+UID->"3fce51a8-23a9-44ab-8797-66cb9871436f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "D_l", " ", "is", " ", "the", " ", "same", " ", "homogeneous", " ", 
+    "solution", " ", "on", " ", "both", " ", "sides", " ", "of", " ", "r0", " ", 
+    RowBox[{"(", 
+     RowBox[{"exact", " ", "arithmetic"}], ")"}]}], " ", "*)"}], "\n", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Simplify", "[", 
+     RowBox[{
+      RowBox[{"singularModeDValue", "[", 
+       RowBox[{"2", ",", " ", "r"}], "]"}], " ", "-", " ", 
+      RowBox[{
+       RowBox[{"singularModeD", "[", "2", "]"}], " ", ".", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"r", "^", "2"}], ",", " ", 
+         RowBox[{"r", "^", 
+          RowBox[{"-", "3"}]}]}], "}"}]}]}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "1", ",", " ", "2", ",", " ", "4", ",", " ", "6", ",", " ", "8", ",", 
+        " ", "10"}], "}"}]}], "}"}]}], "]"}]}]], "Input",ExpressionUUID->\
+"951f02ef-5ee1-44dd-bcdc-a88405317ef7"],
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"l", " ", "=", " ", "2"}], "}"}], ",", " ", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Re", "[", 
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"singularModeCanonical", "[", "l", "]"}], "[", "r", "]"}], 
+         "]"}], "]"}], ",", " ", 
+       RowBox[{"Re", "[", 
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"dsolveSingularMode", "[", "l", "]"}], "[", "r", "]"}], 
+         "]"}], "]"}], ",", " ", 
+       RowBox[{"coulombModeUnit", "[", 
+        RowBox[{"l", ",", " ", "r"}], "]"}], ",", " ", 
+       RowBox[{"Re", "[", 
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"singularModeCorrected", "[", "l", "]"}], "[", "r", "]"}], 
+         "]"}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", "1", ",", " ", "10"}], "}"}], ",", "\n", "  ", 
+     RowBox[{"PlotLegends", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Re psi_p(r+i0)\>\"", ",", 
+        " ", "\"\<Re psi_p naive (principal branch)\>\"", ",", 
+        " ", "\"\<G_l\>\"", ",", " ", "\"\<Re phiS corrected\>\""}], "}"}]}], 
+     ",", " ", 
+     RowBox[{"PlotStyle", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"Orange", ",", " ", "Dashed"}], "}"}], ",", " ", "Black", ",",
+         " ", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", " ", "Dotted"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  "]"}]], "Input",ExpressionUUID->"96d86892-092a-4386-9f41-d0077ca404b3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", "C1", ")"}], " ", "and", " ", 
+     RowBox[{"(", "C2", ")"}], " ", "for", " ", "the", " ", "corrected", " ", 
+     "mode", " ", "phiS_l"}], " ", "=", " ", 
+    RowBox[{"psi_p", " ", "-", " ", "D_l"}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"l", ",", " ", 
+       RowBox[{"Max", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"N", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ComplexExpand", "[", 
+               RowBox[{"Re", "[", 
+                RowBox[{
+                 RowBox[{"singularModeCorrected", "[", "l", "]"}], "[", "rr", 
+                 "]"}], "]"}], "]"}], " ", "-", " ", 
+              RowBox[{"coulombModeUnit", "[", 
+               RowBox[{"l", ",", " ", "rr"}], "]"}]}], ",", " ", "30"}], 
+            "]"}], "]"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"rr", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+             "2", ",", " ", "3", ",", " ", "4", ",", " ", "6", ",", " ", "7", 
+              ",", " ", "9"}], "}"}]}], "}"}]}], "]"}], "]"}], ",", "\n", 
+       "   ", 
+       RowBox[{"Simplify", "[", 
+        RowBox[{
+         RowBox[{"radialL", "[", 
+          RowBox[{"l", ",", " ", 
+           RowBox[{
+            RowBox[{"singularModeCorrected", "[", "l", "]"}], "[", "zVar", 
+            "]"}], ",", " ", "zVar"}], "]"}], " ", "-", " ", 
+         RowBox[{"deltaExt", "[", "zVar", "]"}]}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"l", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}], " ", "//", 
+   " ", "TableForm"}]}]], "Input",ExpressionUUID->"77492736-9b78-43b0-974b-\
+599ecaeddbbc"],
+
+Cell["Stage 2: first-order regular field (S_eff = 0)", "Section",ExpressionUUID->"dbdaddcb-3c3c-47e9-954f-e2a0fee02a1e"],
+
+Cell["\<\
+The notebook's three-region solve with the exact corrected singular mode. \
+PhiR = c0 + c1 r cos(theta): only l = 0, 1 are nonzero. imAR = {Im phiR(aR), \
+Im phiR'(aR)}, which the notebook discards with Re[valR].\
+\>", "Text",ExpressionUUID->"c45f74bc-f591-4537-89d7-8ff081fd8e5c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"res1", " ", "=", " ", 
+   RowBox[{"Association", "@", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"l", " ", "->", " ", 
+       RowBox[{"firstOrderRegular", "[", "l", "]"}]}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", " ", "0", ",", " ", "3"}], "}"}]}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"l", ",", " ", 
+     RowBox[{
+      RowBox[{"res1", "[", "l", "]"}], "[", "\"\<imAR\>\"", "]"}]}], "}"}], ",",
+    " ", 
+   RowBox[{"{", 
+    RowBox[{"l", ",", " ", "0", ",", " ", "3"}], "}"}]}], "]"}]}], "Input",Exp\
+ressionUUID->"866d3613-336c-4ba0-b361-a2c1d3b9335f"],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Re", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"res1", "[", "1", "]"}], "[", "\"\<sol2\>\"", "]"}], "[", "a",
+        "]"}], "]"}], ",", " ", 
+     RowBox[{"Im", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"res1", "[", "1", "]"}], "[", "\"\<sol2\>\"", "]"}], "[", "a",
+        "]"}], "]"}], ",", " ", 
+     RowBox[{"Re", "[", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"phiRAnalytic", "[", "1", "]"}], "[", 
+        RowBox[{"yC", "[", "a", "]"}], "]"}], "]"}], "]"}], ",", " ", 
+     RowBox[{"Im", "[", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"phiRAnalytic", "[", "1", "]"}], "[", 
+        RowBox[{"yC", "[", "a", "]"}], "]"}], "]"}], "]"}]}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", " ", 
+     RowBox[{"tubeL", "[", "]"}], ",", " ", 
+     RowBox[{"tubeR", "[", "]"}]}], "}"}], ",", "\n", " ", 
+   RowBox[{"PlotStyle", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", " ", "Red", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", " ", "Dashed"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Gray", ",", " ", "Dashed"}], "}"}]}], "}"}]}], ",", " ", 
+   RowBox[{"PlotLegends", " ", "->", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Re contour\>\"", ",", " ", "\"\<Im contour\>\"", ",", 
+      " ", "\"\<Re continuation\>\"", ",", " ", "\"\<Im continuation\>\""}], 
+     "}"}]}]}], "]"}]], "Input",ExpressionUUID->"fa62418b-18f1-42fa-b2c2-\
+a016d9c8a620"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"generic", " ", "injected", " ", "field", " ", 
+     RowBox[{"(", 
+      RowBox[{"notebook", " ", "test"}], ")"}]}], ",", " ", 
+    RowBox[{"l", " ", "=", " ", "2"}], ",", " ", 
+    RowBox[{
+     RowBox[{"phi", 
+      RowBox[{"(", "1", ")"}]}], " ", "=", " ", "1"}], ",", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"phi", "'"}], 
+      RowBox[{"(", "1", ")"}]}], " ", "=", " ", "0"}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"gen", " ", "=", " ", 
+     RowBox[{"firstOrderRegular", "[", 
+      RowBox[{"2", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", " ", "0"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"hom", " ", "=", " ", 
+     RowBox[{"homogeneousWithData", "[", 
+      RowBox[{"2", ",", " ", "1", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", " ", "0"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"gen", "[", "\"\<imAR\>\"", "]"}], ",", " ", 
+     RowBox[{"Max", "[", 
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"gen", "[", "\"\<sol3\>\"", "]"}], "[", "#", "]"}], " ", "-",
+            " ", 
+           RowBox[{"N", "[", 
+            RowBox[{
+             RowBox[{"hom", "[", "#", "]"}], ",", " ", "30"}], "]"}]}], ")"}],
+          " ", "&"}], " ", "/@", " ", 
+        RowBox[{"Subdivide", "[", 
+         RowBox[{
+          RowBox[{"11", "/", "2"}], ",", " ", "10", ",", " ", "20"}], "]"}]}],
+        "]"}], "]"}]}], "}"}]}]}]], "Input",ExpressionUUID->"4f577837-a7b0-\
+427a-912e-7fc1e75fe16d"],
+
+Cell["Stage 3: second order, 1/rho^2 case", "Section",ExpressionUUID->"7ce78cee-1eb8-4124-bd35-3daaca7728ca"],
+
+Cell["\<\
+Q = \"Product\" (Q[A,B] = A B).  SS and SR: continued source on the contour \
+inside the tube, real source outside; RR: real line throughout. Boundary \
+conditions from the analytic particular solutions (modes of q^2 Log rho, q c0 \
+rho + q c1 (r0 rho + (r cos theta - r0) rho/2), c0^2 r^2/6 + c0 c1 r^3 \
+cos(theta)/5 + c1^2 r^4 cos(theta)^4/12).\
+\>", "Text",ExpressionUUID->"594588c0-bf23-4872-9ea1-346fc14935d1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Q", " ", "=", " ", "\"\<Product\>\""}], ";", " ", 
+  RowBox[{"l", " ", "=", " ", "2"}], ";", " ", 
+  RowBox[{"rMin", " ", "=", " ", 
+   RowBox[{"csPar", "[", "\"\<rMin\>\"", "]"}]}], ";", " ", 
+  RowBox[{"rMax", " ", "=", " ", 
+   RowBox[{"csPar", "[", "\"\<rMax\>\"", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"phiRExt", " ", "=", " ", 
+   RowBox[{"Association", "@", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"lp", " ", "=", " ", "lp"}], "}"}], ",", " ", 
+        RowBox[{"lp", " ", "->", " ", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", "f", "}"}], ",", " ", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"f", "[", 
+              RowBox[{"r_", "?", "NumericQ"}], "]"}], " ", ":=", " ", 
+             RowBox[{"exteriorValue", "[", 
+              RowBox[{
+               RowBox[{"res1", "[", "lp", "]"}], ",", " ", "r"}], "]"}]}], ";",
+             " ", "f"}]}], "]"}]}]}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"lp", ",", " ", "0", ",", " ", "1"}], "}"}]}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"phiRTilde", " ", "=", " ", 
+   RowBox[{"Association", "@", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"lp", " ", "->", " ", 
+       RowBox[{
+        RowBox[{"res1", "[", "lp", "]"}], "[", "\"\<sol2\>\"", "]"}]}], ",", 
+      " ", 
+      RowBox[{"{", 
+       RowBox[{"lp", ",", " ", "0", ",", " ", "1"}], "}"}]}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"phiRLine", " ", "=", " ", 
+   RowBox[{"Association", "@", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"lp", " ", "->", " ", 
+       RowBox[{"realLineSolve", "[", 
+        RowBox[{"lp", ",", " ", 
+         RowBox[{"Function", "[", 
+          RowBox[{"r", ",", " ", "0"}], "]"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"phiRAnalytic", "[", "lp", "]"}], "[", "rMin", "]"}], ",",
+            " ", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"phiRAnalytic", "[", "lp", "]"}], "'"}], "[", "rMin", 
+            "]"}]}], "}"}]}], "]"}]}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"lp", ",", " ", "0", ",", " ", "1"}], "}"}]}], "]"}]}]}], 
+  ";"}]}], "Input",ExpressionUUID->"5dac502c-3436-4235-858e-84453c690295"],
+
+Cell["SS", "Subsection",ExpressionUUID->"64d4105c-f46c-4f83-96bb-9465488e4413"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Neumann", ":", " ", 
+      RowBox[{
+       RowBox[{"[", 
+        RowBox[{"1", "/", 
+         RowBox[{"rho", "^", "2"}]}], "]"}], "_l"}]}], " ", "=", " ", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"Pi", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", "l"}], "+", "1"}], ")"}]}], "]"}], " ", "Q_l", 
+      RowBox[{
+       RowBox[{"(", "x", ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"r", " ", "r0"}], ")"}]}]}]}], ";", " ", 
+    RowBox[{
+     RowBox[{"continued", " ", "with", " ", "2", " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{"z", "+", "r0"}], "]"}]}], " ", "-", " ", 
+     RowBox[{"2", " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{"z", "-", "r0"}], "]"}]}]}]}], " ", "*)"}], "\n", 
+  RowBox[{"ssSourceModeExpr", "[", 
+   RowBox[{
+   "Q", ",", " ", "l", ",", " ", "zVar", ",", " ", "\"\<continued\>\""}], 
+   "]"}]}]], "Input",ExpressionUUID->"4bf57a38-f414-4a23-be02-c8c77e14341b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solSS", " ", "=", " ", 
+   RowBox[{"pieceAnalyticSolution", "[", 
+    RowBox[{"Q", ",", " ", "\"\<SS\>\"", ",", " ", "l"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"resSS", " ", "=", " ", 
+   RowBox[{"threeRegionSolve", "[", 
+    RowBox[{"l", ",", " ", 
+     RowBox[{"ssSourceReal", "[", 
+      RowBox[{"Q", ",", " ", "l"}], "]"}], ",", " ", 
+     RowBox[{"ssSourceContour", "[", 
+      RowBox[{"Q", ",", " ", "l"}], "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"analyticEval", "[", 
+        RowBox[{"solSS", ",", " ", "rMin"}], "]"}], ",", " ", 
+       RowBox[{"analyticEvalD", "[", 
+        RowBox[{"solSS", ",", " ", "rMin"}], "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"resSS", "[", "\"\<imAR\>\"", "]"}], ",", " ", 
+   RowBox[{"Max", "[", 
+    RowBox[{"Abs", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"exteriorValue", "[", 
+          RowBox[{"resSS", ",", " ", "#"}], "]"}], " ", "-", " ", 
+         RowBox[{"analyticEval", "[", 
+          RowBox[{"solSS", ",", " ", "#"}], "]"}]}], ")"}], " ", "&"}], " ", "/@",
+       " ", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"Subdivide", "[", 
+         RowBox[{"1", ",", " ", 
+          RowBox[{"9", "/", "2"}], ",", " ", "20"}], "]"}], ",", " ", 
+        RowBox[{"Subdivide", "[", 
+         RowBox[{
+          RowBox[{"11", "/", "2"}], ",", " ", "10", ",", " ", "20"}], "]"}]}],
+        "]"}]}], "]"}], "]"}]}], "}"}]}], "Input",ExpressionUUID->"85e22e29-\
+5988-4933-a445-2297c94e07ff"],
+
+Cell["SR", "Subsection",ExpressionUUID->"8dd3dd5d-fab3-4ca1-ae1c-5824b919e218"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"K_", 
+     RowBox[{"{", 
+      RowBox[{"l", " ", 
+       RowBox[{"l", "'"}]}], "}"}], " ", "by", " ", "Gaunt", " ", 
+     "coefficients"}], ";", " ", 
+    RowBox[{"Theta", " ", "->", " ", 
+     RowBox[{"H", " ", "continuation"}]}], ";", " ", 
+    RowBox[{
+     RowBox[{"phiR", "~", " ", "from"}], " ", "the", " ", "Stage", " ", "2", " ",
+      "contour", " ", "solve"}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"solSR", " ", "=", " ", 
+     RowBox[{"pieceAnalyticSolution", "[", 
+      RowBox[{"Q", ",", " ", "\"\<SR\>\"", ",", " ", "l"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"resSR", " ", "=", " ", 
+     RowBox[{"threeRegionSolve", "[", 
+      RowBox[{"l", ",", " ", 
+       RowBox[{"srSourceReal", "[", 
+        RowBox[{"Q", ",", " ", "l", ",", " ", "phiRExt"}], "]"}], ",", " ", 
+       RowBox[{"srSourceContour", "[", 
+        RowBox[{
+        "Q", ",", " ", "l", ",", " ", "phiRTilde", ",", 
+         " ", "\"\<ThetaToH\>\""}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"analyticEval", "[", 
+          RowBox[{"solSR", ",", " ", "rMin"}], "]"}], ",", " ", 
+         RowBox[{"analyticEvalD", "[", 
+          RowBox[{"solSR", ",", " ", "rMin"}], "]"}]}], "}"}]}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"resSRb", " ", "=", " ", 
+     RowBox[{"threeRegionSolve", "[", 
+      RowBox[{"l", ",", " ", 
+       RowBox[{"srSourceReal", "[", 
+        RowBox[{"Q", ",", " ", "l", ",", " ", "phiRExt"}], "]"}], ",", " ", 
+       RowBox[{"srSourceContour", "[", 
+        RowBox[{
+        "Q", ",", " ", "l", ",", " ", "phiRTilde", ",", 
+         " ", "\"\<CorrectedSingular\>\""}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"analyticEval", "[", 
+          RowBox[{"solSR", ",", " ", "rMin"}], "]"}], ",", " ", 
+         RowBox[{"analyticEvalD", "[", 
+          RowBox[{"solSR", ",", " ", "rMin"}], "]"}]}], "}"}]}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"resSR", "[", "\"\<imAR\>\"", "]"}], ",", " ", 
+     RowBox[{"resSRb", "[", "\"\<imAR\>\"", "]"}], ",", " ", 
+     RowBox[{"Max", "[", 
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"exteriorValue", "[", 
+            RowBox[{"resSR", ",", " ", "#"}], "]"}], " ", "-", " ", 
+           RowBox[{"analyticEval", "[", 
+            RowBox[{"solSR", ",", " ", "#"}], "]"}]}], ")"}], " ", "&"}], " ",
+         "/@", " ", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"Subdivide", "[", 
+           RowBox[{"1", ",", " ", 
+            RowBox[{"9", "/", "2"}], ",", " ", "20"}], "]"}], ",", " ", 
+          RowBox[{"Subdivide", "[", 
+           RowBox[{
+            RowBox[{"11", "/", "2"}], ",", " ", "10", ",", " ", "20"}], 
+           "]"}]}], "]"}]}], "]"}], "]"}]}], "}"}]}]}]], "Input",ExpressionUUI\
+D->"d4954f68-4036-424d-b915-fe742e278cc6"],
+
+Cell["RR", "Subsection",ExpressionUUID->"a72bb308-38d6-4465-b2df-a20be02d359e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solRR", " ", "=", " ", 
+   RowBox[{"pieceAnalyticSolution", "[", 
+    RowBox[{"Q", ",", " ", "\"\<RR\>\"", ",", " ", "l"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"lineRR", " ", "=", " ", 
+   RowBox[{"realLineSolve", "[", 
+    RowBox[{"l", ",", " ", 
+     RowBox[{"rrSourceReal", "[", 
+      RowBox[{"Q", ",", " ", "l", ",", " ", "phiRLine"}], "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"analyticEval", "[", 
+        RowBox[{"solRR", ",", " ", "rMin"}], "]"}], ",", " ", 
+       RowBox[{"analyticEvalD", "[", 
+        RowBox[{"solRR", ",", " ", "rMin"}], "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"Max", "[", 
+  RowBox[{"Abs", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"lineRR", "[", "#", "]"}], " ", "-", " ", 
+       RowBox[{"analyticEval", "[", 
+        RowBox[{"solRR", ",", " ", "#"}], "]"}]}], ")"}], " ", "&"}], " ", "/@",
+     " ", 
+    RowBox[{"Subdivide", "[", 
+     RowBox[{"1", ",", " ", "10", ",", " ", "40"}], "]"}]}], "]"}], 
+  "]"}]}], "Input",ExpressionUUID->"c88aa8df-d737-4ead-ad1a-ef352f8686b5"],
+
+Cell["Two-point boundary conditions", "Subsection",ExpressionUUID->"8f6945a2-3816-45c9-9ac1-f1b8ece881cd"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bvpSS", " ", "=", " ", 
+   RowBox[{"threeRegionBVP", "[", 
+    RowBox[{"l", ",", " ", 
+     RowBox[{"ssSourceReal", "[", 
+      RowBox[{"Q", ",", " ", "l"}], "]"}], ",", " ", 
+     RowBox[{"ssSourceContour", "[", 
+      RowBox[{"Q", ",", " ", "l"}], "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"analyticEval", "[", 
+        RowBox[{"solSS", ",", " ", "rMin"}], "]"}], ",", " ", 
+       RowBox[{"analyticEval", "[", 
+        RowBox[{"solSS", ",", " ", "rMax"}], "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"Max", "[", 
+  RowBox[{"Abs", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"exteriorValue", "[", 
+        RowBox[{"bvpSS", ",", " ", "#"}], "]"}], " ", "-", " ", 
+       RowBox[{"analyticEval", "[", 
+        RowBox[{"solSS", ",", " ", "#"}], "]"}]}], ")"}], " ", "&"}], " ", "/@",
+     " ", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"Subdivide", "[", 
+       RowBox[{"1", ",", " ", 
+        RowBox[{"9", "/", "2"}], ",", " ", "20"}], "]"}], ",", " ", 
+      RowBox[{"Subdivide", "[", 
+       RowBox[{
+        RowBox[{"11", "/", "2"}], ",", " ", "10", ",", " ", "20"}], "]"}]}], 
+     "]"}]}], "]"}], "]"}]}], "Input",ExpressionUUID->"1dfdac8f-9cce-4f03-\
+b101-5cb005ed0add"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"analyticEval", "[", 
+       RowBox[{"solSS", ",", " ", "r"}], "]"}], " ", "+", " ", 
+      RowBox[{"analyticEval", "[", 
+       RowBox[{"solSR", ",", " ", "r"}], "]"}], " ", "+", " ", 
+      RowBox[{"analyticEval", "[", 
+       RowBox[{"solRR", ",", " ", "r"}], "]"}]}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", " ", "1", ",", " ", "10"}], "}"}], ",", " ", 
+     RowBox[{"PlotStyle", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", " ", "Dashed"}], "}"}]}]}], "]"}], ",", "\n", 
+   " ", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"#", ",", " ", 
+         RowBox[{
+          RowBox[{"exteriorValue", "[", 
+           RowBox[{"resSS", ",", " ", "#"}], "]"}], " ", "+", " ", 
+          RowBox[{"exteriorValue", "[", 
+           RowBox[{"resSR", ",", " ", "#"}], "]"}], " ", "+", " ", 
+          RowBox[{"lineRR", "[", "#", "]"}]}]}], "}"}], " ", "&"}], " ", "/@",
+       " ", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"Subdivide", "[", 
+         RowBox[{"1", ",", " ", 
+          RowBox[{"9", "/", "2"}], ",", " ", "30"}], "]"}], ",", " ", 
+        RowBox[{"Subdivide", "[", 
+         RowBox[{
+          RowBox[{"11", "/", "2"}], ",", " ", "10", ",", " ", "40"}], "]"}]}],
+        "]"}]}], ",", " ", 
+     RowBox[{"PlotStyle", " ", "->", " ", "Red"}]}], "]"}], ",", "\n", " ", 
+   RowBox[{"PlotLabel", " ", "->", " ", 
+    RowBox[{"\"\<Phi2 mode l = \>\"", " ", "<>", " ", 
+     RowBox[{"ToString", "[", "l", "]"}], " ", "<>", 
+     " ", "\"\<: analytic (dashed) vs contour method (dots)\>\""}]}]}], 
+  "]"}]], "Input",ExpressionUUID->"6a6761e5-42bf-441d-837b-5e4f5dc69c20"],
+
+Cell["\<\
+Full tables and 3D reconstruction: run stage3b_second_order_solve.wls \
+(results/stage3_*). The Grad.Grad (1/rho^4) case, Q = \"GradDot\", is \
+implemented with the same functions (regular-field inputs are pairs {phi, \
+dphi/dr}); see stage5a/stage5b.\
+\>", "Text",ExpressionUUID->"41732f5c-4e9c-4904-9658-9b67b8216615"]
+},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"89bcf6c4-fa81-4750-9c91-932baad6c2e1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 141, 2, 70, "Title",ExpressionUUID->"cc87e8ae-e3b5-4ade-9fe5-a9a2958e1713"],
+Cell[698, 24, 768, 10, 70, "Text",ExpressionUUID->"14180578-0550-4db2-a419-c6363e5c13e3"],
+Cell[1469, 36, 79, 0, 70, "Section",ExpressionUUID->"fea8de0d-f05e-4739-a40c-dcdb2f5cc242"],
+Cell[1551, 38, 250, 5, 70, "Input",ExpressionUUID->"4bff3a24-bb5a-47ee-ab61-e625e3f6d338"],
+Cell[1804, 45, 820, 20, 70, "Input",ExpressionUUID->"20947a83-67b9-4f6a-85c2-156248adcadd"],
+Cell[2627, 67, 679, 17, 70, "Input",ExpressionUUID->"faab317e-45fd-4ce9-99aa-a029722a2a2a"],
+Cell[3309, 86, 112, 0, 70, "Section",ExpressionUUID->"7600abd7-a374-4495-8afa-c30fd67c0662"],
+Cell[3424, 88, 533, 7, 70, "Text",ExpressionUUID->"f8b472ad-4d2e-4b60-9393-df5a1ae07b30"],
+Cell[3960, 97, 407, 12, 70, "Input",ExpressionUUID->"8f1e919a-a220-48b5-95cb-a33f7a5e2860"],
+Cell[4370, 111, 410, 12, 70, "Input",ExpressionUUID->"9a99b8c8-a1f3-477c-84c2-183eeefb58da"],
+Cell[4783, 125, 313, 5, 70, "Text",ExpressionUUID->"ffabf39a-6b67-4ccd-ba61-3f4add9b963c"],
+Cell[5099, 132, 624, 17, 70, "Input",ExpressionUUID->"3fce51a8-23a9-44ab-8797-66cb9871436f"],
+Cell[5726, 151, 1014, 27, 70, "Input",ExpressionUUID->"951f02ef-5ee1-44dd-bcdc-a88405317ef7"],
+Cell[6743, 180, 1600, 42, 70, "Input",ExpressionUUID->"96d86892-092a-4386-9f41-d0077ca404b3"],
+Cell[8346, 224, 1808, 47, 70, "Input",ExpressionUUID->"77492736-9b78-43b0-974b-599ecaeddbbc"],
+Cell[10157, 273, 120, 0, 70, "Section",ExpressionUUID->"dbdaddcb-3c3c-47e9-954f-e2a0fee02a1e"],
+Cell[10280, 275, 291, 4, 70, "Text",ExpressionUUID->"c45f74bc-f591-4537-89d7-8ff081fd8e5c"],
+Cell[10574, 281, 677, 20, 70, "Input",ExpressionUUID->"866d3613-336c-4ba0-b361-a2c1d3b9335f"],
+Cell[11254, 303, 1544, 41, 70, "Input",ExpressionUUID->"fa62418b-18f1-42fa-b2c2-a016d9c8a620"],
+Cell[12801, 346, 1664, 48, 70, "Input",ExpressionUUID->"4f577837-a7b0-427a-912e-7fc1e75fe16d"],
+Cell[14468, 396, 109, 0, 70, "Section",ExpressionUUID->"7ce78cee-1eb8-4124-bd35-3daaca7728ca"],
+Cell[14580, 398, 426, 6, 70, "Text",ExpressionUUID->"594588c0-bf23-4872-9ea1-346fc14935d1"],
+Cell[15009, 406, 2364, 65, 70, "Input",ExpressionUUID->"5dac502c-3436-4235-858e-84453c690295"],
+Cell[17376, 473, 79, 0, 70, "Subsection",ExpressionUUID->"64d4105c-f46c-4f83-96bb-9465488e4413"],
+Cell[17458, 475, 1016, 30, 70, "Input",ExpressionUUID->"4bf57a38-f414-4a23-be02-c8c77e14341b"],
+Cell[18477, 507, 1600, 43, 70, "Input",ExpressionUUID->"85e22e29-5988-4933-a445-2297c94e07ff"],
+Cell[20080, 552, 79, 0, 70, "Subsection",ExpressionUUID->"8dd3dd5d-fab3-4ca1-ae1c-5824b919e218"],
+Cell[20162, 554, 2989, 77, 70, "Input",ExpressionUUID->"d4954f68-4036-424d-b915-fe742e278cc6"],
+Cell[23154, 633, 79, 0, 70, "Subsection",ExpressionUUID->"a72bb308-38d6-4465-b2df-a20be02d359e"],
+Cell[23236, 635, 1128, 30, 70, "Input",ExpressionUUID->"c88aa8df-d737-4ead-ad1a-ef352f8686b5"],
+Cell[24367, 667, 106, 0, 70, "Subsection",ExpressionUUID->"8f6945a2-3816-45c9-9ac1-f1b8ece881cd"],
+Cell[24476, 669, 1295, 36, 70, "Input",ExpressionUUID->"1dfdac8f-9cce-4f03-b101-5cb005ed0add"],
+Cell[25774, 707, 1802, 45, 70, "Input",ExpressionUUID->"6a6761e5-42bf-441d-837b-5e4f5dc69c20"],
+Cell[27579, 754, 330, 5, 70, "Text",ExpressionUUID->"41732f5c-4e9c-4904-9658-9b67b8216615"]
+}
+]
+*)
+
+(* End of internal cache information *)

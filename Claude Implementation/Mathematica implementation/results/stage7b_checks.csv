@@ -1,0 +1,2 @@
+"check","value","tol","result"
+"moment conversion (du, du') at aR -> free-space response = direct quadrature (relative)","<1e-45","1.00e-25","PASS"
