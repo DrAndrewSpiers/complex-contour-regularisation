@@ -69,7 +69,7 @@
 \draw[->] (tay.south -| sr1) -- (sr1.north);
 \draw[->] (tay.south -| 12.4,0) -- node[left] {subtract} (12.4,0 |- sr2.north);
 \draw[->] (ss1.south) -- (ss1.south |- con.north);
-\draw[->] ($(sr2.south west)+(0.35,0)$) -- ($(sr2.south west)+(0.35,0)$ |- con.north);
+\draw[->, dashed] ($(sr2.south west)+(0.7,0)$) -- ++(0,-0.4) -| ($(con.north east)+(-1.4,0)$);
 \draw[->, dashed] ($(sr2.south)+(0.8,0)$) -- ($(sr2.south)+(0.8,0)$ |- rl.north);
 \draw[->, dashed] (rl.south) -- (rl.south |- out.north);
 \draw[->] (sr1.south) -- (sr1.south |- con.north);
