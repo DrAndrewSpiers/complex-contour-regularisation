@@ -399,8 +399,9 @@ exactReference[lmax_, grid_, pieces_: {"SS", "SR", "RR"}] := Module[{g = Sort[gr
    p1 = Position[g, rMin][[1, 1]]; p10 = Position[g, rMax][[1, 1]];
    Do[Module[{vals = Table[(1/2) dzzArr[chis[[All, k]], g[[k]]][[l + 1]], {k, Length[g]}]},
      AB = physFix[l, vals[[p1, 1]], vals[[p1, 2]], vals[[p10, 1]], vals[[p10, 2]]];
-     res[l] = <|"grid" -> g, "val" -> Table[vals[[k, 1]] + AB[[1]] uFun[l, g[[k]]] + AB[[2]] vFun[l, g[[k]]], {k, Length[g]}],
-       "der" -> Table[vals[[k, 2]] + AB[[1]] uFunD[l, g[[k]]] + AB[[2]] vFunD[l, g[[k]]], {k, Length[g]}], "AB" -> AB|>], {l, 0, lmax}];
+     (* the reference is real; the closed-form sources carry inexact zero imaginary parts, which are dropped here *)
+     res[l] = <|"grid" -> g, "val" -> Table[Re[vals[[k, 1]] + AB[[1]] uFun[l, g[[k]]] + AB[[2]] vFun[l, g[[k]]]], {k, Length[g]}],
+       "der" -> Table[Re[vals[[k, 2]] + AB[[1]] uFunD[l, g[[k]]] + AB[[2]] vFunD[l, g[[k]]]], {k, Length[g]}], "AB" -> Re[AB]|>], {l, 0, lmax}];
    res];
 
 End[];

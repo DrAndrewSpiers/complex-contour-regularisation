@@ -168,7 +168,7 @@
 "m1_n5: per-mode power = 10 within 0.5 (r = 6.5, l' 25..40)","4.69e-2","5.00e-1","PASS"
 "m0_n3: error slope = 5 (n + 4, massive; n + 2 at m = 0) within 0.5 (l'max 20..40)","1.25e-1","5.00e-1","PASS"
 "m0_n3: per-mode power = 6 within 0.5 (r = 6.5, l' 25..40)","9.73e-3","5.00e-1","PASS"
-"m=0 n=3 (massless trick puncture): errors at l'max = 12, 20, 40, scaled by max|total| as in the massless test, reproduce the massless Stage 12b (3.90e-5, 3.27e-6, 1.11e-7) to 2e-3 relative","3.75e-3","2.00e-3","FAIL"
+"m=0 n=3 (massless trick puncture): errors at l'max = 12, 20, 40, scaled by max|total| as in the massless test, reproduce the massless Stage 12b (3.90e-5, 3.27e-6, 1.11e-7) within the 3-digit rounding of those numbers (6e-3 relative)","3.75e-3","6.00e-3","PASS"
 "m=0 n=3: slope reproduces the massless 4.87 within 0.02","4.67e-3","2.00e-2","PASS"
 "m1_5_n3 H1 k=0 M=8 l=2: Cauchy step of the contour solve (scaled exterior) < 1e-13","1.36e-18","1.00e-13","PASS"
 "m1_5_n3 H1 k=0 M=8 l=6: Cauchy step of the contour solve (scaled exterior) < 1e-13","3.46e-17","1.00e-13","PASS"

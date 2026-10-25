@@ -133,9 +133,7 @@
 
 | m | l | DSolve outcome | alpha (u_l) | beta (v_l) | fit residual |
 |---|---|---|---|---|---|
-| 1/5 | 0 | closed form ((((25*I)/2)*E^(-1 - r$8840/5)*(-2*E^(1 + r$8840/5) + E^((2*r$8840)/5)*ExpIntegralEi[1 - r$8840/5] - E^2*ExpIntegralEi[-1...) | 1.83940 | 33.9785 | <1e-38 |
-| 1/5 | 2 | closed form ((-5*(2*E*Cosh[r$10036/5]*SphericalBesselJ[-3, (I/5)*r$10036] - 7*CoshIntegral[1 - r$10036/5]*SphericalBesselJ[-3, (I/5)*...) | 0.0343354 |           -37
-1.65535 10 | 2.21e-38 |
-| 1 | 0 | closed form (((I/2)*E^(-5 - r$17575)*(-2*E^(5 + r$17575) + 5*E^(2*r$17575)*ExpIntegralEi[5 - r$17575] - 5*E^10*ExpIntegralEi[-5 + r$1...) | 0.0336897 | 371.033 | <1e-38 |
-| 1 | 2 | closed form ((-10*E^5*Cosh[r$18654]*SphericalBesselJ[-3, I*r$18654] + 43*CoshIntegral[5 - r$18654]*SphericalBesselJ[-3, I*r$18654] - ...) | 0.00386309 |           -41
-3.05670 10 | 8.97e-42 |
+| 1/5 | 0 | closed form ((((25*I)/2)*E^(-1 - r$8840/5)*(-2*E^(1 + r$8840/5) + E^((2*r$8840)/5)*ExpIntegralEi[1 - r$8840/5] - E^2*ExpIntegralEi[-1...) | 1.84e0 | 3.40e1 | <1e-38 |
+| 1/5 | 2 | closed form ((-5*(2*E*Cosh[r$10038/5]*SphericalBesselJ[-3, (I/5)*r$10038] - 7*CoshIntegral[1 - r$10038/5]*SphericalBesselJ[-3, (I/5)*...) | 3.43e-2 | 1.66e-37 | 2.21e-38 |
+| 1 | 0 | closed form (((I/2)*E^(-5 - r$17427)*(-2*E^(5 + r$17427) + 5*E^(2*r$17427)*ExpIntegralEi[5 - r$17427] - 5*E^10*ExpIntegralEi[-5 + r$1...) | 3.37e-2 | 3.71e2 | <1e-38 |
+| 1 | 2 | closed form ((-10*E^5*Cosh[r$18508]*SphericalBesselJ[-3, I*r$18508] + 43*CoshIntegral[5 - r$18508]*SphericalBesselJ[-3, I*r$18508] - ...) | 3.86e-3 | 3.06e-41 | 8.97e-42 |
