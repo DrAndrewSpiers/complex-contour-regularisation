@@ -110,7 +110,7 @@ The model is static, so it tests the regularisation of the source and the recove
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{fig_flow_overview.pdf}
-\caption{Where each piece of the second-order source is solved. The SS and SR pieces, which are singular at the particle, are solved on the complex contour inside the worldtube and on the real axis outside it. The smooth RR piece is solved on the real axis throughout, and the integrable part of SR may equally be solved there (Sec.~\ref{sec:hybrid}). The exterior second-order field is the sum of the three linear solves.}
+\caption{Where each piece of the second-order source is solved. The SS and SR pieces, which are singular at the particle, are solved on the complex contour inside the worldtube and on the real axis outside it. The smooth RR piece is solved on the real axis throughout. In the hybrid treatment of SR (Sec.~\ref{sec:hybrid}) only the closed-form part of the source needs the contour; the integrable remainder is formed on the real axis and can be solved there too (dashed arrow). The exterior second-order field is the sum of the linear solves.}
 \label{fig:flow}
 \end{figure}
 
@@ -331,7 +331,7 @@ Figure~\ref{fig:flowsr} summarises the two ways we have tried to put this source
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{fig_flow_sr.pdf}
-\caption{Two ways of putting the SR source on the contour. Method~1 continues the residual modes individually and multiplies them with the continued puncture modes; the product of the two shadows contaminates the physical field, and the contamination grows with the coupled mode number. Method~2, the hybrid split used in our results, separates a closed-form part that carries every singular and $\delta$-function term from an integrable remainder that is formed on the real axis and Cauchy-continued; no product of continued fields is ever formed.}
+\caption{Two ways of treating the SR source. Method~1 continues the residual modes individually and multiplies them with the continued puncture modes; the product of the two shadows contaminates the physical field, and the contamination grows with the coupled mode number. Method~2, the hybrid split used in our results, separates a closed-form Part~1, which carries every singular and $\delta$-function term and is solved on the contour, from an integrable Part~2, which is formed on the real axis from real fields and solved there (or, equivalently, Cauchy-continued onto the contour and solved with Part~1, dashed arrow); no product of continued fields is ever formed. Both methods end by taking the real part of the contour solution where the contour rejoins the axis.}
 \label{fig:flowsr}
 \end{figure*}
 

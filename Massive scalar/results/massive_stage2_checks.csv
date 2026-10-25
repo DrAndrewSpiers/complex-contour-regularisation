@@ -1,0 +1,253 @@
+"check","value","tol","result"
+"m=1/5 j=0 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=0 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=0 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=0 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=1 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=1 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=1 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=1 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1/5 j=3 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1/5 j=3 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=3 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=3 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1/5 j=6 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=1/5 j=6 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=6 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=6 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1/5 j=8 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=1/5 j=8 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=8 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1/5 j=8 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=1/5 l=0: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-62","1.00e-25","PASS"
+"m=1/5 l=0: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=1: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=1: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1/5 l=2: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=2: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1/5 l=3: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=3: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1/5 l=4: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=4: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1/5 l=5: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=5: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1/5 l=6: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1/5 l=6: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1/5 l=0: reference meets the Robin conditions at r = 1 and 10","<1e-37","1.00e-25","PASS"
+"m=1/5 l=1: reference meets the Robin conditions at r = 1 and 10","<1e-35","1.00e-25","PASS"
+"m=1/5 l=2: reference meets the Robin conditions at r = 1 and 10","<1e-38","1.00e-25","PASS"
+"m=1/5 l=3: reference meets the Robin conditions at r = 1 and 10","<1e-35","1.00e-25","PASS"
+"m=1/5 l=4: reference meets the Robin conditions at r = 1 and 10","<1e-32","1.00e-25","PASS"
+"m=1/5 l=5: reference meets the Robin conditions at r = 1 and 10","<1e-29","1.00e-25","PASS"
+"m=1/5 l=6: reference meets the Robin conditions at r = 1 and 10","<1e-25","1.00e-25","PASS"
+"m=1/5: chi_2^SS by two NIntegrate rules agree (relative)","<1e-40","1.00e-22","PASS"
+"m=1/5: chi_SS(rho) = q^2 [(e^{m rho} Ei(-3 m rho) - e^{-m rho} Ei(-m rho))/(2 m rho) - ln3 cosh(m rho)/(2 m rho)] solves (Lap - m^2) chi = q^2 e^{-2 m rho}/rho^2 (symbolic)","0","1.00e-25","PASS"
+"m=1/5: chi_SS = q^2 ln rho + O(1): no 1/rho term (no point source at x0)","0","1.00e-25","PASS"
+"m=1/5 l=0: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-38","1.00e-20","PASS"
+"m=1/5 l=1: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-38","1.00e-20","PASS"
+"m=1/5 l=2: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-38","1.00e-20","PASS"
+"m=1/5 l=4: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-32","1.00e-20","PASS"
+"m=1/5 l=6: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-25","1.00e-20","PASS"
+"m=1/5 l=0: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","3.47e-20","1.00e-14","PASS"
+"m=1/5 l=1: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","9.23e-20","1.00e-14","PASS"
+"m=1/5 l=2: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","1.33e-19","1.00e-14","PASS"
+"m=1/5 l=3: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.49e-19","1.00e-14","PASS"
+"m=1/5 l=4: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","1.12e-18","1.00e-14","PASS"
+"m=1/5 l=5: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.55e-18","1.00e-14","PASS"
+"m=1/5 l=6: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","4.21e-18","1.00e-14","PASS"
+"m=1/5 l=0: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.73e-21","1.00e-14","PASS"
+"m=1/5 l=1: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","3.41e-21","1.00e-14","PASS"
+"m=1/5 l=2: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","3.76e-20","1.00e-14","PASS"
+"m=1/5 l=3: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.53e-19","1.00e-14","PASS"
+"m=1/5 l=4: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","1.47e-19","1.00e-14","PASS"
+"m=1/5 l=5: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","0","1.00e-14","PASS"
+"m=1/5 l=6: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","0","1.00e-14","PASS"
+"m=1 j=0 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1 j=0 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1 j=0 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=1 j=0 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-37","1.00e-22","PASS"
+"m=1 j=1 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1 j=1 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=1 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=1 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-37","1.00e-22","PASS"
+"m=1 j=3 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=1 j=3 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=3 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=3 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1 j=6 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=1 j=6 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=6 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=6 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=1 j=8 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-43","1.00e-22","PASS"
+"m=1 j=8 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=8 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=1 j=8 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=1 l=0: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1 l=0: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-61","1.00e-25","PASS"
+"m=1 l=1: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-61","1.00e-25","PASS"
+"m=1 l=1: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1 l=2: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-60","1.00e-25","PASS"
+"m=1 l=2: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1 l=3: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-60","1.00e-25","PASS"
+"m=1 l=3: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1 l=4: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-60","1.00e-25","PASS"
+"m=1 l=4: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1 l=5: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-60","1.00e-25","PASS"
+"m=1 l=5: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1 l=6: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","<1e-60","1.00e-25","PASS"
+"m=1 l=6: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=1 l=0: reference meets the Robin conditions at r = 1 and 10","<1e-32","1.00e-25","PASS"
+"m=1 l=1: reference meets the Robin conditions at r = 1 and 10","<1e-31","1.00e-25","PASS"
+"m=1 l=2: reference meets the Robin conditions at r = 1 and 10","<1e-33","1.00e-25","PASS"
+"m=1 l=3: reference meets the Robin conditions at r = 1 and 10","<1e-33","1.00e-25","PASS"
+"m=1 l=4: reference meets the Robin conditions at r = 1 and 10","<1e-33","1.00e-25","PASS"
+"m=1 l=5: reference meets the Robin conditions at r = 1 and 10","<1e-38","1.00e-25","PASS"
+"m=1 l=6: reference meets the Robin conditions at r = 1 and 10","<1e-36","1.00e-25","PASS"
+"m=1: chi_2^SS by two NIntegrate rules agree (relative)","<1e-40","1.00e-22","PASS"
+"m=1: chi_SS(rho) = q^2 [(e^{m rho} Ei(-3 m rho) - e^{-m rho} Ei(-m rho))/(2 m rho) - ln3 cosh(m rho)/(2 m rho)] solves (Lap - m^2) chi = q^2 e^{-2 m rho}/rho^2 (symbolic)","0","1.00e-25","PASS"
+"m=1: chi_SS = q^2 ln rho + O(1): no 1/rho term (no point source at x0)","0","1.00e-25","PASS"
+"m=1 l=0: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-28","1.00e-20","PASS"
+"m=1 l=1: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-28","1.00e-20","PASS"
+"m=1 l=2: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-28","1.00e-20","PASS"
+"m=1 l=4: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","<1e-29","1.00e-20","PASS"
+"m=1 l=6: SS reference (Green's quadrature of the mode source) = modes of (1/2) d_Z^2 chi_SS(rho) (scaled)","2.45e-36","1.00e-20","PASS"
+"m=1 l=0: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.61e-18","1.00e-14","PASS"
+"m=1 l=1: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","5.11e-18","1.00e-14","PASS"
+"m=1 l=2: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.18e-18","1.00e-14","PASS"
+"m=1 l=3: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","8.69e-18","1.00e-14","PASS"
+"m=1 l=4: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.30e-17","1.00e-14","PASS"
+"m=1 l=5: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","3.05e-17","1.00e-14","PASS"
+"m=1 l=6: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.23e-17","1.00e-14","PASS"
+"m=1 l=0: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.10e-21","1.00e-14","PASS"
+"m=1 l=1: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.27e-21","1.00e-14","PASS"
+"m=1 l=2: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","5.92e-21","1.00e-14","PASS"
+"m=1 l=3: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.43e-21","1.00e-14","PASS"
+"m=1 l=4: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.85e-21","1.00e-14","PASS"
+"m=1 l=5: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","0","1.00e-14","PASS"
+"m=1 l=6: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","0","1.00e-14","PASS"
+"m=0 j=0 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=0 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=0 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=0 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=1 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=1 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=1 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=1 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-39","1.00e-22","PASS"
+"m=0 j=3 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=0 j=3 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=3 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=3 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=0 j=6 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=0 j=6 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=6 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=6 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-41","1.00e-22","PASS"
+"m=0 j=8 r=3: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=0 j=8 r=49
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=8 r=51
+--
+10: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-40","1.00e-22","PASS"
+"m=0 j=8 r=8: closed-form modes of q^2 e^{-2m rho}/rho^2, 2q e^{-m rho} PhiR/rho, PhiR^2 = angular quadrature","<1e-42","1.00e-22","PASS"
+"m=0 l=0: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=0: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-61","1.00e-25","PASS"
+"m=0 l=1: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=1: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=0 l=2: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=2: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=0 l=3: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=3: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=0 l=4: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=4: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=0 l=5: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=5: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=0 l=6: SS source delta coefficient = 4 Pi m q^2 Y_l(0)/r0^2 (from the -m q term of the singular field)","0","1.00e-25","PASS"
+"m=0 l=6: SR source delta coefficient c_l = -4 Pi q PhiR(x0) Y_l(0)/r0^2 (m-independent)","<1e-60","1.00e-25","PASS"
+"m=0 l=0: reference meets the Robin conditions at r = 1 and 10","<1e-38","1.00e-25","PASS"
+"m=0 l=1: reference meets the Robin conditions at r = 1 and 10","<1e-37","1.00e-25","PASS"
+"m=0 l=2: reference meets the Robin conditions at r = 1 and 10","<1e-37","1.00e-25","PASS"
+"m=0 l=3: reference meets the Robin conditions at r = 1 and 10","<1e-35","1.00e-25","PASS"
+"m=0 l=4: reference meets the Robin conditions at r = 1 and 10","<1e-34","1.00e-25","PASS"
+"m=0 l=5: reference meets the Robin conditions at r = 1 and 10","<1e-38","1.00e-25","PASS"
+"m=0 l=6: reference meets the Robin conditions at r = 1 and 10","<1e-39","1.00e-25","PASS"
+"m=0: chi_2^SS by two NIntegrate rules agree (relative)","<1e-40","1.00e-22","PASS"
+"m=0 l=0: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","5.21e-20","1.00e-14","PASS"
+"m=0 l=1: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","4.20e-20","1.00e-14","PASS"
+"m=0 l=2: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","1.31e-19","1.00e-14","PASS"
+"m=0 l=3: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","3.77e-19","1.00e-14","PASS"
+"m=0 l=4: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","7.88e-19","1.00e-14","PASS"
+"m=0 l=5: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.24e-18","1.00e-14","PASS"
+"m=0 l=6: SR reference = NDSolve real-line solve with the Robin conditions (scaled)","3.89e-18","1.00e-14","PASS"
+"m=0 l=0: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","2.54e-22","1.00e-14","PASS"
+"m=0 l=1: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","<1e-27","1.00e-14","PASS"
+"m=0 l=2: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","1.38e-20","1.00e-14","PASS"
+"m=0 l=3: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","1.18e-20","1.00e-14","PASS"
+"m=0 l=4: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","6.01e-22","1.00e-14","PASS"
+"m=0 l=5: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","0","1.00e-14","PASS"
+"m=0 l=6: RR reference = NDSolve real-line solve with the Robin conditions (scaled)","0","1.00e-14","PASS"
+"m=0 l=0: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-37","1.00e-18","PASS"
+"m=0 l=1: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-36","1.00e-18","PASS"
+"m=0 l=2: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-35","1.00e-18","PASS"
+"m=0 l=3: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-34","1.00e-18","PASS"
+"m=0 l=4: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-34","1.00e-18","PASS"
+"m=0 l=5: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-36","1.00e-18","PASS"
+"m=0 l=6: reference machinery at m = 0 = modes of the massless closed form (1/2) d_Z^2 chi (scaled)","<1e-36","1.00e-18","PASS"
+"m=1/5 l=0: SS + SR + RR reference pieces recorded","0","0","PASS"
+"m=1 l=0: SS + SR + RR reference pieces recorded","0","0","PASS"
+"m=0 l=0: SS + SR + RR reference pieces recorded","0","0","PASS"
